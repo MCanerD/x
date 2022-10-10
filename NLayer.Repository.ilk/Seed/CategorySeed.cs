@@ -1,0 +1,25 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using NLayer.Core.ilk;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace NLayer.Repository.ilk.Seed
+{
+    internal class CategorySeed : IEntityTypeConfiguration<Category>
+    {
+        public void Configure(EntityTypeBuilder<Category> builder)
+        {
+            //Seed data dışında id vermeye gerek yok, default olarak ekleniyor.
+            builder.HasData(
+                new Category { Id = 1, Name = "Kalemler", },
+                new Category { Id = 2, Name = "Kitaplar", }, 
+                new Category { Id = 3, Name = "Kalemler", }
+                );
+
+        }
+    }
+}
